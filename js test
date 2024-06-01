@@ -1,0 +1,53 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+let animeCollection = [];
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintAnime(name, narrative, mainCharacter, specialAttack) {
+    const anime = {
+      name: name,
+      narrative: narrative,
+      mainCharacter: mainCharacter,
+      specialAttack: specialAttack
+    };
+    animeCollection.push(anime);
+  }
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listAnime() { 
+    for (let i = 0; i < animeCollection.length; i++) {  
+      console.log("\nAnime " + (i + 1) + ":");
+      console.log("  Name           : " + animeCollection[i].name);
+      console.log("  Narrative      : " + animeCollection[i].narrative);
+      console.log("  Main Character : " + animeCollection[i].mainCharacter);
+      console.log("  Special Attack : " + animeCollection[i].specialAttack.join(", "));
+    }
+  }
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    return animeCollection.length;
+  }
+// call your functions below this line
+mintAnime("Naruto", "A story about a ninja's journey to become Hokage of konoha village", "Naruto Uzumaki", ["Rasengan"]);
+mintAnime("Jujutsu Kaisen", "A tale of high school students fighting curses with magic against greatest curse sakuna", "Yuji Itadori", ["Black Flash"]);
+mintAnime("Attack on Titan", "Humans fight for survival against giant humanoid Titans", "Eren Yeager", ["Titan Transformation"]);
+
+
+console.log("List of all minted anime:");
+listAnime();
+
+// Print the total number of anime
+console.log("\n\nTotal Supply of Anime: " + getTotalSupply());
